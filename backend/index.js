@@ -70,6 +70,18 @@ function exists(u){
     });
   });
 }
+async function getComments(sp) {
+  const GETDB = 'SELECT * FROM comments';
+  return new Promise((resolve, reject) => {
+    db.all(GETDB, [], (err, rows) => {
+      if (err) {
+        reject(err.message);
+      } else {
+        resolve(rows.reverse());
+      }
+    });
+  });
+}
 app.post("/login", async (req,res)=>{
     const content = req.body.content;
     try {
@@ -112,7 +124,14 @@ app.post("/post", async(req,res)=>{
     res.status(500).send('An error occurred.');
   }
 })
-
+app.get("/comments", async (req, res) => {
+  try {
+    const comments = await getComments();
+    res.status(200).send(comments);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 
 
 app.listen(port, ()=> console.log("Server is running on port 3001"))
