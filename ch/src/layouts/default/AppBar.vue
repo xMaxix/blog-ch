@@ -52,6 +52,7 @@
     methods:{
       clear(){
         window.sessionStorage.clear()
+        window.location.reload()
       }
     }
 

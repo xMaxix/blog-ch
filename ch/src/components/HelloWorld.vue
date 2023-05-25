@@ -7,9 +7,9 @@
 
                 <div class="d-flex justify-center"><h1 class="text-h2" style="font-family: 'Bebas Neue', sans-serif;">Making Gunpowder</h1></div>
 
-          <div class="d-flex justify-center mt-5"><h1 class="text-h4" style="font-family: 'Bebas Neue', sans-serif;">Only three ingredients</h1></div>
+          <div class="d-flex justify-center mt-5 m-auto"><h1 class="text-h4" style="font-family: 'Bebas Neue', sans-serif;">Only three ingredients</h1></div>
 
-          <kinesis-container class="mt-10">
+          <kinesis-container class="mt-10 m-auto">
             <div fluid class="d-flex justify-center"><kinesis-element 
                   class="card1"
                   :strength="30"
@@ -31,7 +31,7 @@
                   :strength="50"
                   type="translate"
                   axis="x"
-                  ><img :style="[{ 'width': '320px' }]" class="rounded-xl elevation-2" src="./charcoal.jpg" ></kinesis-element>
+                  ><img :style="[{ 'width': '320px' }]" class="rounded-xl elevation-2 m-auto" src="./charcoal.jpg" ></kinesis-element>
                 </div>
           </kinesis-container>
         </div>
@@ -101,7 +101,7 @@
             username: window.sessionStorage.getItem("username"),
             password: window.sessionStorage.getItem("password"),
             comment: this.comment,
-            time: (new Date()).getUTCDate(),
+            time: (new Date()),
 
           }
         }).then((response)=> {
@@ -123,13 +123,11 @@
         })
       },
       localDate( utcString){
-        const utcDate = new Date(utcString);
-        const localDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000);
-        
-        const day = String(localDate.getDate()).padStart(2, '0');
-        const month = String(localDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-        const year = String(localDate.getFullYear());
-        const clock = String(localDate.getHours())+":"+String(localDate.getMinutes());
+        const utcDate = new Date(utcString);        
+        const day = String(utcDate.getDate()).padStart(2, '0');
+        const month = String(utcDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+        const year = String(utcDate.getFullYear());
+        const clock = String(utcDate.getHours())+":"+String(utcDate.getMinutes());
 
         return [day +"."+ month +"."+ year,clock]
 

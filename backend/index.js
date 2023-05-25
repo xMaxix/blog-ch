@@ -20,14 +20,27 @@ const db = new sqlite3.Database('./users.db', sqlite3.OPEN_READWRITE,(err)=>{
 
 // create a table
 // sql = `CREATE TABLE comments(id INTEGER PRIMARY KEY, username, time, text)`
+// sql = `CREATE TABLE users(id INTEGER PRIMARY KEY, username, password)`
 // db.run(sql)
 
 // drop table
-// db.run("DROP TABLE users")
+// db.run("DROP TABLE comments")
+
+// delete
+// const query = `DELETE FROM comments WHERE id = ?`;
+
+// db.run(query, [1], function (err) {
+//   if (err) {
+//     console.error(err.message);
+//   } else {
+//     console.log(`Row(s) deleted: ${this.changes}`);
+//   }})
 
 // insert into db
+// sql = `INSERT INTO comments(username, time, text) VALUES(?,?,?)`
+
 // sql = `INSERT INTO users(username, password) VALUES(?,?)`
-// db.run(sql,["admin","6c1895a03a84b2ad2c8b6a39bee626c7106bb19c9a9f2e8108a13520d7a36e1e"],(err)=>{if(err) return err.message})
+// db.run(sql,["admin","2023-05-26T18:35:20.576Z","i actually can't remember any of this lmao"],(err)=>{if(err) return err.message})
 // query
 function data(u,p){
     const GETDB = 'SELECT * FROM users';
@@ -70,6 +83,7 @@ function exists(u){
     });
   });
 }
+
 async function getComments(sp) {
   const GETDB = 'SELECT * FROM comments';
   return new Promise((resolve, reject) => {
