@@ -28,7 +28,7 @@
           
           <v-btn  v-if="!loggedin"  href="login" class="mr-16 ml-auto" variant="plain">Log in
           </v-btn>
-          <v-btn @click="window.sessionStorage.clear()" v-if="loggedin" variant="plain" class="mr-16 ml-auto">Hello {{ username }}</v-btn>
+          <v-btn @click="clear()" v-if="loggedin" variant="plain" class="mr-16 ml-auto">Hello {{ username }}</v-btn>
     </div>
 
     </v-card>
@@ -49,6 +49,11 @@
         this.loggedin = true
       }
     },
+    methods:{
+      clear(){
+        window.sessionStorage.clear()
+      }
+    }
 
   }
 </script>
