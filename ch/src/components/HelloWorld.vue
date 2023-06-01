@@ -3,7 +3,7 @@
   <div class="">
     <v-card class="  ml-3 mt-3 mr-3 mb-3 elevation-5">
       <div class=" ml-4 mt-4d-flex d-flex flex-column justify-center">
-        <div class="mt-16 mb-16 r">
+        <div class="mt-16 mb-16">
 
                 <div class="d-flex justify-center"><h1 class="text-h2" style="font-family: 'Bebas Neue', sans-serif;">Making Gunpowder</h1></div>
 
@@ -38,7 +38,7 @@
         <div class="mb-16"></div>
         <div class="mb-16"></div>
         
-        <div :style="{'z-index': '0'}" class="justify-center d-flex"><v-card  class="d-flex align-center elevation-5 justify-center mt-16 flex-wrap rounded-xl pt-3 pb-3" :style="{ 'max-width': '1100px' }">        
+        <div :style="{'z-index': '0'}" class="justify-center d-flex"><v-card  class="d-flex align-center elevation-20 justify-center mt-16 flex-wrap rounded-xl pt-3 pb-3" :style="{ 'max-width': '1100px' }">        
           <div class=" d-flex justify-center mr-2 mt-2 ml-2 mb-2"><v-card class="rounded-xl elevation-1" :style="{ 'max-width': '500px' }" variant="tonal" >
           <v-card-title class="pt-6 pl-10 pr-10">The first step</v-card-title>
           <v-card-text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, odit facere inventore suscipit quae rerum? Debitis placeat exercitationem, atque vero magnam sit dolor quia libero quasi corrupti, porro inventore itaque.</v-card-text>
@@ -54,7 +54,7 @@
       </v-card></div>
 
 
-        <div class="d-flex justify-center mt-16"><v-card width="500" class="elevation-5 rounded-xl"><v-card-title >Comment Section</v-card-title>
+        <div class="d-flex justify-center mt-16"><v-card width="500" class="elevation-20 rounded-xl"><v-card-title >Comment Section</v-card-title>
           <v-form @submit.prevent="post"><v-text-field v-model="comment" v-if="loggedin==true" class="pl-5 pr-5" label="Write a comment..." variant="underlined"></v-text-field>
           <!-- <v-btn v-if="loggedin==true" type="submit"></v-btn> -->
           </v-form>
@@ -78,6 +78,13 @@
   <div class="mb-3"></div>
 
 </template>
+
+<script setup>
+  import { useTheme } from "vuetify";
+  const theme = useTheme();
+  theme.global.name.value = window.localStorage.getItem("theme");
+</script>
+
 <script>
   import axios from 'axios'
 
