@@ -103,7 +103,10 @@
 
 <script>
   import axios from 'axios'
-  const port = "https://ch-api-maximilian.onrender.com"
+  import dotenv from 'dotenv';
+  dotenv.config(); // Load environment variables from .env
+  const port = process.env.API_URL;
+
 
   export default{
     data() {
