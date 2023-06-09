@@ -23,6 +23,7 @@
 <script>
   import axios from 'axios'
   import CryptoJS from 'crypto-js';
+  const port = "https://ch-api-maximilian.onrender.com"
 
 export default  {
 
@@ -43,7 +44,7 @@ export default  {
       },
 
       async signup() {
-          axios.post('http://localhost:3001/signup', {
+          axios.post(port+'/signup', {
               content: {
                   username: this.username,
                   password: this.encryptPassword(this.password),

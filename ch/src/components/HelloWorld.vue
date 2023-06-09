@@ -103,6 +103,7 @@
 
 <script>
   import axios from 'axios'
+  const port = "https://ch-api-maximilian.onrender.com"
 
   export default{
     data() {
@@ -119,7 +120,7 @@
     }
       },
       async post(){
-        axios.post("http://localhost:3001/post",{
+        axios.post(port+"/post",{
           content:{
             username: window.sessionStorage.getItem("username"),
             password: window.sessionStorage.getItem("password"),
@@ -137,7 +138,7 @@
           })
       },
       async loadcomments(){
-        axios.get("http://localhost:3001/comments").then((response)=>{
+        axios.get(port+"/comments").then((response)=>{
           this.commentObject = response.data
 
           console.log(response.data)

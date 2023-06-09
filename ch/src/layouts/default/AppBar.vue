@@ -68,7 +68,6 @@ const toggleTheme = () => {
 
 }
 
-  // Optional: Get value of current theme
 };
 </script>
 
